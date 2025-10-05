@@ -1,10 +1,9 @@
 #!/bin/bash
-# Improved but simple per-file JS extractor (beginner-friendly)
+
 
 mkdir -p js_simple && cd js_simple || exit 1
 
-# assume your .js files are already here; if not, download them first
-# for safety: skip if no .js files
+
 shopt -s nullglob
 for f in ./*.js; do
   [ -f "$f" ] || continue
@@ -15,7 +14,7 @@ for f in ./*.js; do
 
   # 1) Full URLs (unique) - show top 20
   echo -e "\n>>> URLs (top 20) <<<" | tee -a "$report"
-  grep -Eo 'https?://[^"'"'[:space:]]+' "$f" | sort -u | tee -a "$report" | sed -n '1,20p'
+  grep -Eo "https?://[^"'"'[:space:]]+' "$f" | sort -u | tee -a "$report" | sed -n '1,20p'"
 
   # 2) API-like paths (relative) - clean & unique
   echo -e "\n>>> API / endpoint paths <<<" | tee -a "$report"
