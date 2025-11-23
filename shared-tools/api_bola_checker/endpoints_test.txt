@@ -1,2 +1,3 @@
 https://jsonplaceholder.typicode.com/posts/{id}
 https://jsonplaceholder.typicode.com/comments/{id}
+https://example.com/user?id={id}
