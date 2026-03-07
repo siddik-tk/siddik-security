@@ -79,5 +79,5 @@ ISP: Deutsche Telekom AG
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/SOC-Bruteforce-Detector.git
+git clone https://github.com/siddik-tk/siddik-security/tree/master/SOC-Bruteforce-Detector
 cd SOC-Bruteforce-Detector
