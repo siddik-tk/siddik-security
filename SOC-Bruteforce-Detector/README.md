@@ -84,6 +84,7 @@ cd SOC-Bruteforce-Detector
 
 pip install requests
 
-Usage:
+Usage
 
+Run the detector:
 python detector.py
