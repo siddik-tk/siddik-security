@@ -3,6 +3,11 @@
 A Python-based SOC automation tool that detects SSH brute-force attacks from Linux authentication logs (`auth.log`).  
 The script analyzes failed login attempts, identifies suspicious activity within a time window, enriches attacker IPs with threat intelligence, and generates alerts.
 
+It also includes key feautures :
+
+1. real time monitor
+2. auto ip blocker
+
 This project demonstrates core SOC detection engineering concepts including log parsing, event correlation, IOC enrichment, and alert tuning.
 
 ---
@@ -10,11 +15,13 @@ This project demonstrates core SOC detection engineering concepts including log 
 ## Features
 
 - Parses Linux `auth.log` files
+- Real-time monitoring
 - Extracts attacker IP addresses using regex
 - Detects SSH brute-force attacks based on time-window logic
 - Filters internal/private network traffic to reduce false positives
 - Enriches attacker IPs with threat intelligence (country and ISP)
 - Generates clean SOC-style alerts
+- Auto ip blocker
 
 ---
 
@@ -55,21 +62,28 @@ The script extracts:
 
 ## Example Output
 
-PS C:\Users\<user>> python Bruteforce_Detector_v1.py
+$ python Bruteforce_Detector_v1.py
 
 ⚠ SSH BRUTE FORCE DETECTED
+
 IP: 185.34.22.90
 Attempts: 5
 Time Window: 13 seconds
 Country: Russia
 ISP: LTD "Erline"
 
+[ACTION] Blocking attacker IP: 185.34.22.90
+
+
 ⚠ SSH BRUTE FORCE DETECTED
+
 IP: 91.23.55.12
 Attempts: 4
 Time Window: 12 seconds
 Country: Germany
 ISP: Deutsche Telekom AG
+
+[ACTION] Blocking attacker IP: 91.23.55.12
 
 
 ---

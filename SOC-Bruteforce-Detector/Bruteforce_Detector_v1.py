@@ -5,6 +5,13 @@ pattern = r"\d+\.\d+\.\d+\.\d+"
 
 log_file = r"C:\Users\mdsid\Documents\siddik-security\SOC\auth.log"
 
+import os
+
+def block_ip(ip):
+
+    print(f"[ACTION] Blocking attacker IP: {ip}")
+    os.system(f"iptables -A INPUT -s {ip} -j DROP")
+
 def enrich_ip(ip):
 
     url = "http://ip-api.com/json/" + ip
@@ -18,6 +25,18 @@ def enrich_ip(ip):
 
     return country, isp
 
+def follow_log(file):
+
+    file.seek(0, 2)
+
+    while True:
+        line = file.readline()
+
+        if not line:
+            continue
+
+        yield line
+
 def extract_ip(line):
     match = re.search(pattern, line)
     return match.group() if match else "No IP found"
@@ -28,7 +47,7 @@ def parse_logs():
     remote_server_ips = ["101.18.1.71"]
 
     with open(log_file) as f:
-            for line in f:
+        for line in follow_log(f):
                     if "Failed password" in line:
                             #print(line.strip())
                             ip = extract_ip(line)
@@ -60,6 +79,7 @@ def detect_bruteforce(attempts):
                             print("Time Window:", max(times)-min(times), "seconds")
                             print("Country:", country)
                             print("ISP:", isp)
+                            block_ip(ip)
 
 def main():
 
