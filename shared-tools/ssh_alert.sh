@@ -20,3 +20,65 @@ sudo journalctl SYSLOG_IDENTIFIER=sshd --since "$TIME_WINDOW minutes ago" \
       else
         print "✅ Normal: " $1 " attempts from " $2
     }'
+
+
+#include<iostream>
+using namespace std;
+
+int n;
+cin >> n;
+
+int main(){
+
+if (n%2 == 0){
+  cout << n << " is even" << endl;
+}
+else{
+
+  cout << n << " is odd" << endl;
+}
+}
+
+#include<iostream>
+using namespace std;
+
+int a = 4;
+int b = 8;
+int c = 2;
+
+int main(){
+
+if (a>=b && a>=c){
+   cout << a << "is largest" << endl;
+}
+else if(b>=a && b>=c){
+   cout << b << "is largest" << endl;
+
+}
+else{
+    cout << c << " is largest" << endl;
+}
+}
+
+#include<iostream>
+using namespace std;
+
+int mark = 83;
+
+int main(){
+
+if (mark >= 90){
+   cout << "A grade" << endl;
+}
+else if(mark >= 80 && mark < 90){
+   cout << "B grade" << endl;
+}
+else if(mark>= 70 && mark < 80){
+    cout << "C grade" << endl;
+}
+else if(mark >= 60 && mark < 70){
+    cout << "D grade" << endl;
+}
+else{
+    cout << "F grade" << endl;
+}
