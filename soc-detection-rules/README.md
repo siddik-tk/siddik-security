@@ -23,4 +23,4 @@ Demonstrate behavioral detection techniques used by SOC analysts to identify att
 MITRE ATT&CK Coverage:
 The detection rules align with common adversary tactics including brute force, persistence, command-and-control, privilege escalation, and network anomalies.
 
-# all my learning rules for later usage and revision is here. Anyone can use this rules for their work.
+## all my learning rules for later usage and revision is here. Anyone can use this rules for your work.
